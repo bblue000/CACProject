@@ -12,8 +12,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme.Activity" >
         <activity
-            android:name=".contact.ui.activity.MainActivity"
-            android:label="@string/title_activity_main" >
+            android:name=".contact.ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.DEFAULT"/>

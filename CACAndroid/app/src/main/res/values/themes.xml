@@ -6,7 +6,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="AppTheme.Activity" parent="android:Theme.NoTitleBar">
+    <style name="AppTheme.Activity" parent="android:Theme.Light.NoTitleBar">
 
     </style>
 
