@@ -30,49 +30,82 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test);
         ButterKnife.inject(this);
-        ViewPropertyAnimator
-                .animate(container)
-                .scaleXBy(.25f)
-                .scaleYBy(.25f)
-                .rotationXBy(-75)
-                .setStartDelay(1000L)
-                .setDuration(500)
-                .setListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationStart(Animator animation) {
+        container.dump();
 
-                    }
 
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        ViewPropertyAnimator
-                                .animate(container)
-                                .rotationXBy(75)
-                                .setDuration(1000)
-                                .start();
-                    }
 
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
+//        AnimatorProxy animator = AnimatorProxy.wrap(container);
+//        animator.setRotationX(30);
+//        animator.setScaleX(0.5f);
+//        animator.setScaleY(0.5f);
 
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animator animation) {
-
-                    }
-                })
-                .start();
+//        ViewPropertyAnimator
+//                .animate(container)
+//                .rotationXBy(-30)
+//                .scaleX(2.f)
+//                .scaleY(2.f)
+//                .setStartDelay(1000L)
+//                .setDuration(1000L)
+//                .setListener(new Animator.AnimatorListener() {
+//                    @Override
+//                    public void onAnimationStart(Animator animation) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onAnimationEnd(Animator animation) {
+////                        ViewPropertyAnimator
+////                                .animate(container)
+////                                .rotationXBy(75)
+////                                .setDuration(1000)
+////                                .start();
+//
+//                        ViewPropertyAnimator
+//                                .animate(container)
+//                                .rotationXBy(0)
+//                                .setStartDelay(1000L)
+//                                .setDuration(1000L)
+//                                .setListener(null)
+//                                .start();
+//                    }
+//
+//                    @Override
+//                    public void onAnimationCancel(Animator animation) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onAnimationRepeat(Animator animation) {
+//
+//                    }
+//                })
+//                .start();
     }
 
     @OnClick(R.id.btn)
     void onBtnClicked() {
-        if (CACContactManager.getInstance(this).addContact(CACContactModel.simplePhoneWithCom(
-                "YY", "15151877621", "唯品会", "开发工程师"))) {
-            Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show();
-        }
+//        if (CACContactManager.getInstance(this).addContact(CACContactModel.simplePhoneWithCom(
+//                "YY", "15151877621", "唯品会", "开发工程师"))) {
+//            Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
+//        } else {
+//            Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show();
+//        }
+
+        container.dump();
     }
+
+    boolean flag;
+    @OnClick(R.id.container)
+    void onContainerClicked() {
+        ViewPropertyAnimator
+                .animate(container)
+                .setStartDelay(0L)
+                .rotationXBy(flag ? -10 : 10)
+                .setDuration(100L)
+                .setListener(null)
+                .start();
+        flag = !flag;
+    }
+
 
 }

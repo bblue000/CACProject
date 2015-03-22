@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "com.rubick.cac.android"
-        minSdkVersion 14
-        targetSdkVersion 21
+        minSdkVersion 8
+        targetSdkVersion 19
         versionCode 1
         versionName "1.0"
     }
@@ -24,4 +24,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.jakewharton:butterknife:5.1.1'
     compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.android.support:cardview-v7:21.0.3'
+    compile 'com.android.support:support-v4:22.0.0'
 }
