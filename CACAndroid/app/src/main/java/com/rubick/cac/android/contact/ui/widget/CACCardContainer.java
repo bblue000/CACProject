@@ -26,7 +26,7 @@ public class CACCardContainer extends RelativeLayout {
 
     protected final float ORIGN_SCALE = 0.25f;
     protected final float COMEOUT_TERM_1_SCALE = 0.75f;
-    protected final float COMEOUT_TERM_2_SCALE = 2f - 0.618f;//1.25
+    protected final float COMEOUT_TERM_2_SCALE = 1.25f;//1.25f 2f - 0.618f
     protected final float COMEOUT_TERM_3_SCALE = 1.f;
 
     protected final float ORIGN_TRANS_RATIO = 0.f;
