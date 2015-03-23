@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.rubick.cac.android.contact.ui.widget.CACCardContainer
+<android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/mycards_pager_item_container"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    >
 
+    <View
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:background="@drawable/bg"/>
 
-    <android.support.v7.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        >
-        <View
-            android:layout_width="300dp"
-            android:layout_height="150dp"
-            android:background="@drawable/bg"/>
-    </android.support.v7.widget.CardView>
-
-</com.rubick.cac.android.contact.ui.widget.CACCardContainer>
+</android.support.v7.widget.CardView>

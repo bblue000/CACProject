@@ -1,30 +1,106 @@
 apply plugin: 'com.android.application'
 
+// 项目配置
 android {
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
 
+    // android项目默认参数，相对多渠道而言，如果多渠道没有设置相关参数，则使用该配置中的默认值
     defaultConfig {
         applicationId "com.rubick.cac.android"
         minSdkVersion 8
         targetSdkVersion 19
         versionCode 1
         versionName "1.0"
+        //buildConfigField "String", "FOO", "\"bar\""
+        //manifestPlaceholders = [ UMENG_CHANNEL_VALUE:"default_channel" ] // manifest文件中的占位符${UMENG_CHANNEL_VALUE}
     }
+
+    // 资源文件设置
+    /*
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+
+        // Move the tests to tests/java, tests/res, etc...
+        //instrumentTest.setRoot('tests')
+
+        // Move the build types to build-types/<type>
+        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
+        // This moves them out of them default location under src/<type>/... which would
+        // conflict with src/ being used by the main source set.
+        // Adding new build types or product flavors should be accompanied
+        // by a similar customization.
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+    */
+
+    //签名
+    signingConfigs {
+        debug {
+            //storeFile file("/home/sam/.android/debug.keystore")
+        }
+        //你自己的keystore信息
+        release {
+            //storeFile file("/home/sam/sangmingming.keystore")
+            //storePassword ""
+            //keyAlias "sam"
+            //keyPassword ""
+        }
+    }
+
+    // 编译参数设置
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // 多渠道设置
+    productFlavors {
+        // buildConfigField会编译到BuildConfig类中
+        //samsung {
+        //    buildConfigField "String", "FOO", "\"bar\""
+        //}
+    }
+
+    // lint文件设置
+    lintOptions {
+        abortOnError false
+    }
+
+    // 多渠道的批处理
+    //productFlavors.all { flavor ->
+    //    flavor.manifestPlaceholders = [ UMENG_CHANNEL_VALUE:name ]
+    //}
+
+    // 应用程序打包批处理
+    //applicationVariants.all { variant ->
+    //    variant.outputs.each { output ->
+    //        def outputFile = output.outputFile
+    //        if (outputFile != null && outputFile.name.endsWith('.apk')) {
+    //            def fileName = outputFile.name.replace(".apk", "-${defaultConfig.versionName}.apk")
+    //            output.outputFile = new File(outputFile.parent, fileName)
+    //        }
+    //    }
+    //}
 }
 
+// 项目依赖
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:21.0.3'
-    compile 'com.jakewharton:butterknife:5.1.1'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.android.support:cardview-v7:21.0.3'
-    compile 'com.android.support:support-v4:22.0.0'
     compile project(':androidrubick')
+    compile 'com.android.support:cardview-v7:21.0.3'
+    //compile project(':androidrubick')
+    //compile 'com.android.support:support-v4:22.0.0'
 }
+
