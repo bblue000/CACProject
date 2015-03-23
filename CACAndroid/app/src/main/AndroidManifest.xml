@@ -10,7 +10,8 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme.Activity" >
+        android:theme="@style/AppTheme.Activity"
+        >
         <activity
             android:name=".contact.ui.activity.MainActivity">
             <intent-filter>
@@ -19,6 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".contact.ui.activity.CACMyCardsActivity"
+            android:theme="@style/AppTheme.CACMyCards"/>
     </application>
 
 </manifest>

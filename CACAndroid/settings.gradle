@@ -1,1 +1,7 @@
 include ':app'
+
+include ':androidrubick', ':androidrubick-base'
+
+def lib_dir = 'D:\\GitHub\\backup\\AndroidRubick\\library-androidrubick\\'
+project(':androidrubick').projectDir = new File(lib_dir + 'androidrubick')
+project(':androidrubick-base').projectDir = new File(lib_dir + 'androidrubick-base')

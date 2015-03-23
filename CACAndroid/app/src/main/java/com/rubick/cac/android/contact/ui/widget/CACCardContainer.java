@@ -97,10 +97,10 @@ public class CACCardContainer extends RelativeLayout {
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
-        if (!mSwitchFlag) {
-            super.dispatchDraw(canvas);
-            return;
-        }
+//        if (!mSwitchFlag) {
+//            super.dispatchDraw(canvas);
+//            return;
+//        }
         float containerWidth = getContainerWidth();
         float containerHeight = getContainerHeight();
 
@@ -152,9 +152,11 @@ public class CACCardContainer extends RelativeLayout {
         mComeOutTerm1Anim.setInterpolator(ANIM_INC_TERM_1);
         startAnimation(mComeOutTerm1Anim);
 
+        getParent().requestDisallowInterceptTouchEvent(true);
     }
 
-    protected void resetValues() {
+    public void resetValues() {
+        clearAnimation();
         mScaleX = ORIGN_SCALE;
         mScaleY = ORIGN_SCALE;
         mRotateX = ORIGN_ROTATE;
@@ -264,7 +266,7 @@ public class CACCardContainer extends RelativeLayout {
         mAnimTerm3Flag = false;
 
         mComeOutTerm3Anim.setDuration(DUR_TERM_3);
-        mComeOutTerm3Anim.setAnimationListener(null);
+        mComeOutTerm3Anim.setAnimationListener(mComeOutTerm3AnimListener);
         mComeOutTerm3Anim.setInterpolator(ANIM_INC_TERM_3);
         startAnimation(mComeOutTerm3Anim);
     }
@@ -294,7 +296,7 @@ public class CACCardContainer extends RelativeLayout {
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            animateTerm3();
+            getParent().requestDisallowInterceptTouchEvent(false);
         }
 
         @Override
